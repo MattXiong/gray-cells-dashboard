@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 年度进度条</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="weather-card" id="weather-card">
+    <div class="weather-status" id="weather-status">正在获取天气…</div>
+    <div class="weather-main" id="weather-main" hidden>
+      <div class="weather-city" id="weather-city"></div>
+      <div class="weather-temp-row">
+        <span class="weather-temp" id="weather-temp"></span>
+        <span class="weather-desc" id="weather-desc"></span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="card">
+      <h1 class="title">2026 年 · 年度进度</h1>
+      <p class="subtitle" id="date-text"></p>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-info">
+          <span id="percent-text">0%</span>
+        </div>
+      </div>
+
+      <dl class="meta">
+        <div class="meta-row">
+          <dt>已度过</dt>
+          <dd><span id="days-passed">0</span> 天</dd>
+        </div>
+        <div class="meta-row">
+          <dt>全年天数</dt>
+          <dd><span id="days-total">0</span> 天</dd>
+        </div>
+        <div class="meta-row">
+          <dt>今天</dt>
+          <dd id="today-detail"></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="card card--secondary">
+      <h2 class="title title--small">自定义倒计时</h2>
+      <p class="subtitle">为你的重要时刻创建多个专属倒计时。</p>
+
+      <form class="countdown-form" id="countdown-form">
+        <div class="field">
+          <label for="event-name">事件名称</label>
+          <input
+            type="text"
+            id="event-name"
+            name="eventName"
+            placeholder="例如：我的生日"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="field">
+          <label for="event-date">目标日期</label>
+          <input
+            type="datetime-local"
+            id="event-date"
+            name="eventDate"
+          />
+        </div>
+
+        <button type="submit" class="btn" id="add-countdown">
+          添加倒计时
+        </button>
+      </form>
+
+      <div class="countdown-list-wrapper">
+        <div class="countdown-list-header">
+          <span>我的倒计时</span>
+          <span class="countdown-count" id="countdown-count">0 个</span>
+        </div>
+        <div class="countdown-list" id="countdown-list">
+          <div class="countdown-empty">尚未添加任何倒计时</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card pomodoro-card">
+      <h2 class="title title--small">专注模式 · 25 分钟</h2>
+      <p class="subtitle">点击开始，进入一小段高质量的深度专注。</p>
+      <div class="pomodoro-body">
+        <div>
+          <div class="pomodoro-display" id="pomodoro-display">25:00</div>
+          <div class="pomodoro-desc">默认为 25 分钟番茄钟，结束后会提示你稍作休息。</div>
+        </div>
+        <div class="pomodoro-controls">
+          <button class="pomodoro-btn" id="pomodoro-toggle">开始 25 分钟</button>
+          <button class="pomodoro-btn pomodoro-btn--secondary" id="pomodoro-reset">重置</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card inspiration-card" id="inspiration-card">
+      <h2 class="title title--small">每日一语</h2>
+      <p class="subtitle">每天一句小小的灵感，陪你走完这一日。</p>
+      <div class="inspiration-body">
+        <div class="inspiration-status" id="inspiration-status">正在唤醒今日灵感…</div>
+        <div class="inspiration-text" id="inspiration-text"></div>
+        <div class="inspiration-author" id="inspiration-author"></div>
+      </div>
+    </section>
+
+    <section class="card card--history">
+      <h2 class="title title--small">历史上的今天</h2>
+      <p class="subtitle">看看在这一天，世界上曾发生过什么。</p>
+      <div class="history-body">
+        <div class="history-status" id="history-status">正在获取历史信息…</div>
+        <ul class="history-list" id="history-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="utils.js"></script>
+  <script src="countdown.js"></script>
+  <script src="history.js"></script>
+  <script src="weather.js"></script>
+  <script src="inspiration.js"></script>
+  <script src="pomodoro.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
